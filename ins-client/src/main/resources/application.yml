@@ -1,0 +1,11 @@
+server:
+  port: 7060
+  servlet:
+    context-path: /ins
+spring:
+  application:
+    name: ins
+  mvc:
+     view:
+       prefix: /jsp/
+       suffix: .jsp

@@ -1,0 +1,49 @@
+server:
+  port: 7070
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+              
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: institute-service
+        uri: lb://institute-service
+        predicates:
+        - Path=/api/institutes/**
+        filters:
+        - RewritePath=/api/(?<institutes>.*), /$\{institutes}
+      - id: department-service
+        uri: lb://department-service
+        predicates:
+        - Path=/departments/**
+        filters:
+        - RewritePath=/departments/(?<path>.*), /$\{path}
+      - id: staff-service
+        uri: lb://staff-service
+        predicates:
+        - Path=/staffs/**
+        filters:
+        - RewritePath=/staffs/(?<path>.*), /$\{path}
+      - id: student-service
+        uri: lb://student-service
+        predicates:
+        - Path=/students/**
+        filters:
+        - RewritePath=/students/(?<path>.*), /$\{path}
+      - id: admin-service
+        uri: lb://admin-service
+        predicates:
+        - Path=/api/users/**
+        filters:
+        - RewritePath=/api/(?<users>.*), /$\{users}

@@ -1,0 +1,37 @@
+@charset "ISO-8859-1";
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 75%;
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td, th {
+	border: 1px solid black;
+	text-align: left;
+	padding: 8px;
+	border: 1px solid black;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.colTitle {
+	font-weight: bold;
+	color: #077c01;
+}
+
+.headerTxt {
+	font-weight: bold;
+	padding: 8px;
+	font-size: 18px;
+	color: #01368c;
+}
+
+.navbar {
+	border: 5px solid #000;
+}

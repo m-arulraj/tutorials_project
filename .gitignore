@@ -1,4 +1,10 @@
 .settings
 .project
 .metadata
+.classpath
 //*/*.class
+/.project
+//*/.classpath
+/.settings/
+*.class
+target/
